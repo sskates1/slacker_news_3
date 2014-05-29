@@ -1,4 +1,8 @@
-<form class="light_background" action="/new_article" method="post">
+<% if @user_id==nil %>
+  <p class="error"> please login to post an article </p>
+<% end %>
+
+<form class="light_background" action="/article/new" method="post">
       <label for="new_title">Title: </label>
       <input type="text" id="new_title" name="title" placeholder="Title:" />
       <br />

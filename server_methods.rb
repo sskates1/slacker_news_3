@@ -30,7 +30,6 @@ def new_article(title, url, description, user_id)
   article = db_connection do |conn|
     conn.exec_params(query,[title, url, description, user_id])
   end
-
 end
 
 def new_user(user_name, password, email = nil)
@@ -55,3 +54,24 @@ def new_user(user_name, password, email = nil)
     return false
   end
 end
+
+def login(user_name, password)
+  query = "SELECT user_name, password, id
+            FROM users
+            WHERE user_name LIKE $1
+                AND password LIKE $2"
+  check = db_connection do |conn|
+    conn.exec_params(query, [user_name,password])
+  end
+  check = check.to_a
+  # no results => username and password do not match
+  if check.length == 0
+    return nil, false
+  #user name and password exist
+  else
+    user_id = check[0]["id"]
+    success = true
+    return user_id, success
+  end
+end
+

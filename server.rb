@@ -1,6 +1,8 @@
 require_relative 'server_methods'
 require 'sinatra'
 
+user_id = nil
+
 get '/' do
   @articles = get_articles()
   @index = 0
@@ -12,10 +14,24 @@ get '/articles' do
 end
 
 get '/login' do
+  @success = true
   erb :login
 end
 
+post '/login' do
+  user_name = params["user_name"]
+  password = params["password"]
+  user_id, success = login(user_name,password)
+  @success = success
+  if success
+    redirect "/"
+  else
+    erb :'/login'
+  end
+end
+
 get '/articles/new' do
+  @user_id = user_id
   erb :submit
 end
 
@@ -23,7 +39,13 @@ post '/articles/new' do
   title = params["title"]
   url = params["url"]
   description = params["description"]
-  redirect "/"
+  @user_id = user_id
+  if @user_id != nil
+    new_article(title, url, description, user_id)
+    redirect "/"
+  else
+    erb :'/articles/new'
+  end
 end
 
 get '/new_user' do
@@ -31,10 +53,10 @@ get '/new_user' do
 end
 
 post '/new_user' do
-  @name = params["user_name"]
-  @password = params["password"]
-  @email = params["email"]
-  @create = new_user(@name, @password, @email)
+  name = params["user_name"]
+  password = params["password"]
+  email = params["email"]
+  @create = new_user(name, password, email)
   if !@create
     #display error message
     erb :'/new_user'
