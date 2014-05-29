@@ -13,6 +13,7 @@ end
 
 get '/login' do
   erb :login
+end
 
 get '/articles/new' do
   erb :submit
