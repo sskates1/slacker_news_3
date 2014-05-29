@@ -7,12 +7,18 @@ get '/' do
   erb :index
 end
 
+get '/articles' do
+  redirect '/'
+end
 
-get '/submit' do
+get '/login' do
+  erb :login
+
+get '/articles/new' do
   erb :submit
 end
 
-post '/submit' do
+post '/articles/new' do
   title = params["title"]
   url = params["url"]
   description = params["description"]
