@@ -5,6 +5,7 @@ CREATE TABLE articles (
   user_id int NOT NULL,
   description text,
   score int NOT NULL,
+  created_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE comments (
@@ -18,6 +19,7 @@ CREATE TABLE comments (
 CREATE TABLE users(
   id serial PRIMARY KEY,
   user_name varchar(255) NOT NULL,
-  password varchar(25) NOT NULL
+  password varchar(25) NOT NULL,
+  email varchar(255)
 
 );

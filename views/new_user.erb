@@ -1,0 +1,16 @@
+<% if !@create %>
+  <p class="user_error"> ERROR user name already taken </p>
+<% end %>
+
+<form class="bipity bopity" action="/new_user" method="post">
+      <label for="user_name"></label>
+      <input type="text" id="new_user" name="new_user" placeholder="name:" />
+      <br />
+      <label for="password"></label>
+      <input type="text" id="password" name="password"/>
+      <br />
+      <label for="email"></label>
+      <input type="text" id="email" name="email"/>
+      <br />
+      <input type="submit" value="Submit" />
+</form>
