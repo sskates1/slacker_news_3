@@ -94,7 +94,7 @@ ol li a {
 }
 
 .nav-link {
-  border-right: 1px solid black;
+  border-left: 1px solid black;
   padding-right: 8px;
   padding-left: 3px;
   text-decoration: none;
