@@ -2,7 +2,7 @@ require 'pg'
 
 def db_connection
   begin
-    connection = PG.connect(dbname: 'movies')
+    connection = PG.connect(dbname: 'slacker_news')
 
     yield(connection)
 
@@ -14,7 +14,7 @@ end
 def get_articles()
   query = " SELECT articles.id as article_id, title, url, description, score, user_name
             FROM articles
-            JOIN users on articles.user_id = users.id"
+            JOIN users on articles.user_id = users.id;"
 
   articles = db_connection do |conn|
     conn.exec(query)
@@ -26,7 +26,7 @@ end
 
 def new_article(title, url, description, user_id)
   query = "INSERT INTO articles (title, url, description, user_id, score)
-            VALUES ($1,$2,$3,$4,0)"
+            VALUES ($1,$2,$3,$4,0);"
   article = db_connection do |conn|
     conn.exec_params(query,[title, url, description, user_id])
   end
@@ -37,7 +37,7 @@ def new_user(user_name, password, email = nil)
 
   query = "SELECT user_name
             FROM users
-            WHERE user_name LIKE '$1'"
+            WHERE user_name LIKE '$1';"
 
   check = db_connection do |conn|
     conn.exec_params(query,[user_name])
@@ -46,7 +46,7 @@ def new_user(user_name, password, email = nil)
   if check.length == 0
     # creates the new user
     query = "INSERT INTO users (user_name, password, email)
-              VALUES ($1,$2,$3)"
+              VALUES ($1,$2,$3);"
     user = db_connection do |conn|
       conn.exec_params(query, [user_name,password,email])
     end
