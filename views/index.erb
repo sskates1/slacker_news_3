@@ -1,0 +1,19 @@
+<div id="#" class="#">
+  <ol>
+    <% @articles.each do |article| %>
+      <li>
+        <span class="#">
+          <%= article[:title] %>
+        </span>
+        <span class="#">
+          <a href= <%= "#{article[:url]}" %> > <%= article[:url] %> </a>
+        </span>
+        <br />
+        <span class="#">
+          <%= article[:description] %>
+        </span>
+      </li>
+    <% end %>
+  </ol>
+  <p>test</p>
+</div>
