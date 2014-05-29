@@ -1,0 +1,17 @@
+<ol class = "links">
+  <% @articles.each do |article| %>
+    <li>
+      <p class="#"> <img class = "arrow" src = "grayarrow.gif">
+        <%= article[:title] %>
+      </p>
+      <p class="#">
+        <a href= <%= "#{article[:url]}" %> > <%= article[:url] %> </a>
+      </p>
+      <br />
+      <p class="#">
+        <%= article[:description] %>
+      </p>
+    </li>
+  <% end %>
+</ol>
+<p>test</p>
