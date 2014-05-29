@@ -11,8 +11,8 @@ CREATE TABLE articles (
 CREATE TABLE comments (
   id serial PRIMARY KEY,
   user_id varchar(255) NOT NULL,
-  article_id int NOT NULL FOREIGN KEY REFERENCES articles(id),
-  parent_id int FOREIGN KEY REFERENCES comments(id),
+  article_id int NOT NULL REFERENCES articles(id),
+  parent_id int REFERENCES comments(id),
   comment text NOT NULL
 );
 
