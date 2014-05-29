@@ -52,7 +52,6 @@ ol li a {
   display:inline;
 }
 
-
 #brand {
   color: black;
   font-weight: bold;
@@ -61,6 +60,14 @@ ol li a {
 }
 
 #login {
+  float: right;
+  text-decoration: none;
+  color: black;
+  padding-top: 2px;
+  padding-right: 2px;
+  margin-right: 10px;
+}
+#sign_up {
   float: right;
   text-decoration: none;
   color: black;
@@ -100,3 +107,16 @@ ol li a {
   text-decoration: none;
   color: black;
 }
+
+/* This if or my body */
+
+.main-container {
+  margin-top: 0px;
+  background-color: #f6f6ef;
+  padding: 4px;
+}
+
+.links {
+  color: gray;
+}
+
