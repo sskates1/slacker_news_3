@@ -25,10 +25,10 @@ def get_articles()
 end
 
 def new_article(title, url, description, user_id)
-  query = "INSERT INTO articles (title, url, description, user_id, score)
-            VALUES ($1,$2,$3,$4,0);"
+  query = "INSERT INTO articles (title, url, user_id,description, score, created_at)
+            VALUES ($1,$2,$3,$4,0, NOW());"
   article = db_connection do |conn|
-    conn.exec_params(query,[title, url, description, user_id])
+    conn.exec_params(query,[title, url, user_id, description])
   end
 end
 
@@ -36,7 +36,7 @@ def new_user(user_name, password, email = nil)
 
   query = "SELECT user_name
             FROM users
-            WHERE user_name LIKE '$1';"
+            WHERE user_name LIKE $1;"
 
   check = db_connection do |conn|
     conn.exec_params(query,[user_name])

@@ -2,14 +2,14 @@
   <% @articles.each do |article| %>
     <li>
       <p class=".arrow"> <img class = "arrow" src = "grayarrow.gif">
-        <%= article[:title] %>
+        <%= article["title"] %>
       </p>
       <p>
-        <a href= <%= "article[:url]" %> > <%= article[:url] %> </a>
+        <a href= <%= "#{article["url"]}" %> > <%= article["url"] %> </a>
       </p>
       <br />
       <p>
-        <%= article[:description] %>
+        <%= article["description"] %>
       </p>
     </li>
   <% end %>
