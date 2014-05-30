@@ -48,7 +48,7 @@ post '/articles/new' do
   description = params["description"]
   @user_id = session["user_id"]
   if @user_id != nil
-    new_article(title, url, description, user_id)
+    new_article(title, url, description, @user_id)
     redirect "/"
   else
     erb :'submit'
