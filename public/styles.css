@@ -120,3 +120,26 @@ ol li a {
   color: gray;
 }
 
+.light_background {
+  background-color: #F6F6EF;
+}
+
+#search {
+  display:inline;
+  margin: 15px;
+  text-align: center;
+  color: #828282;
+}
+
+#footer {
+  padding: 20px 0px 20px 0px;
+  margin-bottom: 0px;
+  font-size: .85em;
+  text-align: center;
+}
+
+.nav_list li {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+}
