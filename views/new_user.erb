@@ -1,16 +1,19 @@
-<% if !@create %>
-      <div class="alert-box error"><span>error: </span>Username already taken.</div>
+<% if @create == 0 %>
+  <div class="alert-box error"><span>error: </span>Username already taken.</div>
+<% elsif @confirm != @password%>
+  <div class="alert-box error"><span>error: </span>Passwords do not match</div>
 <% end %>
+
 <div class="login_form">
       <form action="/new_user" method="post">
-            <label for="user_name">Username: </label>
+            <label for="new_user">Username: </label>
             <input type="text" id="new_user" name="new_user" placeholder="username" />
             <br />
             <label for="password">Password: </label>
-            <input type="password" id="password" name="password" placeholder="username:" />
+            <input type="password" id="password" name="password" placeholder="password" />
             <br />
             <label for="password">Confirm Password: </label>
-            <input type="password" id="password_confirm" name="password_confirm" placeholder="" />
+            <input type="password" id="password_confirm" name="password_confirm" placeholder="password again" />
             <br />
             <label for="email">Email Address: </label>
             <input type="text" id="email" name="email" placeholder="email" />

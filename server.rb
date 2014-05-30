@@ -26,10 +26,9 @@ end
 post '/login' do
   user_name = params["user_name"]
   password = params["password"]
-  user_id, success = login(user_name,password)
+  user_id, @success = login(user_name,password)
   session["user_id"] = user_id
-  @success = success
-  if success
+  if @success == 1
     redirect "/"
   else
     erb :'/login'
@@ -59,11 +58,12 @@ get '/new_user' do
 end
 
 post '/new_user' do
-  @name = params["user_name"]
+  @name = params["new_user"]
   @password = params["password"]
   @email = params["email"]
+  @confirm = params["password_confirm"]
   @create = new_user(@name, @password, @email)
-  if !@create
+  if @confirm != @password || @create == 0
     #display error message
     erb :'/new_user'
   else

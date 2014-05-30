@@ -49,9 +49,9 @@ def new_user(user_name, password, email = nil)
     user = db_connection do |conn|
       conn.exec_params(query, [user_name,password,email])
     end
-    return true
+    return 1
   else
-    return false
+    return 0
   end
 end
 
@@ -66,11 +66,11 @@ def login(user_name, password)
   check = check.to_a
   # no results => username and password do not match
   if check.length == 0
-    return nil, false
+    return nil, 0
   #user name and password exist
   else
     user_id = check[0]["id"]
-    success = true
+    success = 1
     return user_id, success
   end
 end
