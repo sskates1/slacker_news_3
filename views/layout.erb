@@ -13,7 +13,7 @@
       <li><a id = "brand" href = "/">Slacker News</a></li>
       <li><a class = "nav-link" href = "/articles/new">Post New Article</a></li>
       <% if session["user_id"] != nil%>
-        <a id = 'logout' href = "/logout">logout</a>
+        <a id = 'login' href = "/logout">logout</a>
       <%else%>
         <a id = 'login' href = "/login">login</a>
       <%end%>
