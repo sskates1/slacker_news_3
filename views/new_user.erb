@@ -3,14 +3,17 @@
 <% end %>
 <div class="login_form">
       <form action="/new_user" method="post">
-            <label for="user_name"></label>
-            <input type="text" id="new_user" name="new_user" placeholder="name:" />
+            <label for="user_name">Username: </label>
+            <input type="text" id="new_user" name="new_user" placeholder="username" />
             <br />
-            <label for="password"></label>
-            <input type="text" id="password" name="password"/>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password" placeholder="username:" />
             <br />
-            <label for="email"></label>
-            <input type="text" id="email" name="email"/>
+            <label for="password">Confirm Password: </label>
+            <input type="password" id="password_confirm" name="password_confirm" placeholder="" />
+            <br />
+            <label for="email">Email Address: </label>
+            <input type="text" id="email" name="email" placeholder="email" />
             <br />
             <input type="submit" value="Submit" />
       </form>
