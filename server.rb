@@ -20,6 +20,11 @@ get '/login' do
   erb :login
 end
 
+get '/logout' do
+  session.clear
+  redirect '/'
+end
+
 post '/login' do
   user_name = params["user_name"]
   password = params["password"]
