@@ -51,7 +51,7 @@ post '/articles/new' do
     new_article(title, url, description, user_id)
     redirect "/"
   else
-    erb :'/articles/new'
+    erb :'submit'
   end
 end
 
