@@ -177,3 +177,59 @@ ol li a {
     background:#ffecec url('images/error.png') no-repeat 10px 50%;
     border:1px solid #f5aca6;
 }
+
+
+/* sign-up button */
+
+.sign_up {
+  -moz-box-shadow:inset 0px 1px 16px -2px #fce2c1;
+  -webkit-box-shadow:inset 0px 1px 16px -2px #fce2c1;
+  box-shadow:inset 0px 1px 16px -2px #fce2c1;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+  background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+  background-color:#ffc477;
+  -webkit-border-top-left-radius:9px;
+  -moz-border-radius-topleft:9px;
+  border-top-left-radius:9px;
+  -webkit-border-top-right-radius:9px;
+  -moz-border-radius-topright:9px;
+  border-top-right-radius:9px;
+  -webkit-border-bottom-right-radius:9px;
+  -moz-border-radius-bottomright:9px;
+  border-bottom-right-radius:9px;
+  -webkit-border-bottom-left-radius:9px;
+  -moz-border-radius-bottomleft:9px;
+  border-bottom-left-radius:9px;
+  text-indent:0;
+  border:1px solid #eeb44f;
+  display:inline-block;
+  color:#ffffff;
+  font-family:Georgia;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  height:35px;
+  line-height:35px;
+  width:79px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 5px #cc9f52;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sign_up:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+  background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+  background-color:#fb9e25;
+}.sign_up:active {
+  position:relative;
+  top:1px;
+}
+
+#button {
+  margin-left: auto;
+  margin-right: auto;
+
+}

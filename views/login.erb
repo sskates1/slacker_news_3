@@ -1,6 +1,7 @@
 <% if !@success %>
-  <div class="alert-box error"><span>error: </span>Wrong username or password.</div>
+  <div class="alert-box error"><span>Error: </span>Wrong username or password.</div>
 <% end %>
+
 <div class="login_form">
   <form action="/login" method="post">
     <label for="user_name">Username: </label>
@@ -10,4 +11,6 @@
     <input type="password" id="password" name="password" placeholder="password"/>
     <input type="submit" value="submit" />
   </form>
+  <a href="#" class="sign_up">Sign-up</a>
 </div>
+
