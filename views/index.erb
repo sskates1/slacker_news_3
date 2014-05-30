@@ -1,14 +1,14 @@
 <ol class = "links">
   <% @articles.each do |article| %>
     <li>
-      <p class="#"> <img class = "arrow" src = "grayarrow.gif">
+      <p class=".arrow"> <img class = "arrow" src = "grayarrow.gif">
         <%= article[:title] %>
       </p>
-      <p class="#">
+      <p>
         <a href= <%= "#{article[:url]}" %> > <%= article[:url] %> </a>
       </p>
       <br />
-      <p class="#">
+      <p>
         <%= article[:description] %>
       </p>
     </li>
