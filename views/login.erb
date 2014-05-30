@@ -1,5 +1,5 @@
 <% if !@success %>
-  <p class="error"> ERROR wrong password or username</p>
+  <div class="alert-box error"><span>error: </span>Wrong username or password.</div>
 <% end %>
 <form class="light_background" action="/login" method="post">
       <label for="user_name">Username: </label>
