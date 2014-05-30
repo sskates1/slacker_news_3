@@ -5,7 +5,7 @@ require 'pry'
 enable :sessions
 
 get '/' do
-  @user_id = user_id
+  @user_id = session["user_id"]
   @articles = get_articles()
   @index = 0
   erb :index
@@ -33,6 +33,7 @@ post '/login' do
 end
 
 get '/articles/new' do
+  @user_id = session["user_id"]
   erb :submit
 end
 
@@ -40,7 +41,13 @@ post '/articles/new' do
   title = params["title"]
   url = params["url"]
   description = params["description"]
-  redirect "/"
+  @user_id = session["user_id"]
+  if @user_id != nil
+    new_article(title, url, description, user_id)
+    redirect "/"
+  else
+    erb :'/articles/new'
+  end
 end
 
 get '/new_user' do
