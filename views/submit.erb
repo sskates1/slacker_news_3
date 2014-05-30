@@ -4,7 +4,7 @@
 <% end %>
 
 <div class="login_form">
-      <form class="light_background" action="/articles/new" method="post">
+      <form id ="submit_form" class="light_background" action="/articles/new" method="post">
             <label for="new_title">Title: </label>
             <input type="text" id="new_title" name="title" placeholder="Title:" />
             <br />
@@ -14,7 +14,7 @@
             <!-- description of article -->
             <label for="description">Article Description: </label>
             <br/>
-            <textarea style="width:90%" rows="4" form="article_form" name="description" id="description" ></textarea>
+            <textarea style="width:90%" rows="4" form="submit_form" name="description" id="description" ></textarea>
             <br />
             <input type="submit" value="submit" />
       </form>
