@@ -1,9 +1,13 @@
 require_relative 'server_methods'
 require 'sinatra'
+require 'pry'
+
+enable :sessions
 
 user_id = nil
 
 get '/' do
+  @user_id = user_id
   @articles = get_articles()
   @index = 0
   erb :index
@@ -22,6 +26,7 @@ post '/login' do
   user_name = params["user_name"]
   password = params["password"]
   user_id, success = login(user_name,password)
+  session["user_id"] = user_id
   @success = success
   if success
     redirect "/"

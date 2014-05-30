@@ -1,3 +1,10 @@
+<% if session["user_id"]  != nil %>
+  <p>logged in
+    <%=session["user_id"]%>
+  </p>
+<% else %>
+  <p>not logged in</p>
+<% end%>
 <ol class = "links">
   <% @articles.each do |article| %>
     <li>
