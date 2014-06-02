@@ -1,12 +1,12 @@
 require_relative 'server_methods'
 require 'sinatra'
 
-enable :sessions
+#enable :sessions
+use Rack::Session::Cookie, secret: ENV['SECRET_TOKEN']
 
 get '/' do
   @user_id = session["user_id"]
   @articles = get_articles()
-  @index = 0
   erb :index
 end
 

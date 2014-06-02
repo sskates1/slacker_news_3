@@ -1,4 +1,6 @@
 require 'pg'
+require 'time'
+require 'pry'
 
 def db_connection
   begin
@@ -12,7 +14,7 @@ def db_connection
 end
 
 def get_articles()
-  query = " SELECT articles.id as article_id, title, url, description, score, user_name
+  query = " SELECT articles.id as article_id, title, url, description, score, user_name, created_at
             FROM articles
             JOIN users on articles.user_id = users.id;"
 
@@ -21,6 +23,11 @@ def get_articles()
   end
 
   articles = articles.to_a
+  articles.each do |article|
+    time_unit, amount = how_long_ago(Time.now.getutc-Time.parse(article["created_at"]))
+    article["time_unit"] = time_unit
+    article["time_amount"] = amount
+  end
   return articles
 end
 
@@ -74,4 +81,30 @@ def login(user_name, password)
     return user_id, success
   end
 end
+
+def how_long_ago(time_diff_seconds)
+  different_units = {}
+  time_diff_seconds = time_diff_seconds.to_i
+  minutes = time_diff_seconds / 60
+  hours = minutes / 60
+  days = hours / 24
+  weeks = days / 7
+  months = days / 30
+  years = days / 365
+  different_units["years"] = years
+  different_units["months"] = months
+  different_units["weeks"] = weeks
+  different_units["days"] = days
+  different_units["hours"] = hours
+  different_units["minutes"] = minutes
+  different_units["seconds"] = time_diff_seconds
+
+  different_units.each do |time_unit, amount|
+    if amount >= 1
+      return time_unit, amount
+    end
+  end
+end
+
+
 

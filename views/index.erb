@@ -3,16 +3,12 @@
     <li>
       <p class=".arrow"> <img class = "arrow" src = "grayarrow.gif">
         <%= article["title"] %>
+        <a href= <%= "#{article["url"]}"%> target="_blank"  > <%= article["url"] %> </a>
       </p>
-      <p>
-        <a href= <%= "#{article["url"]}" %> > <%= article["url"] %> </a>
-      </p>
-      <br />
       <p>
         <%= article["score"] %> points by
-      </p>
-      <p>
-        <%= article["user_id"] %>
+        <%= article["user_name"] %>
+        <%= article["time_amount"] %> <%= article["time_unit"] %> ago
       </p>
       <p>
         <%= article["description"] %>
